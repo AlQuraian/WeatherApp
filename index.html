@@ -3,13 +3,40 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="semantic/dist/semantic.min.js"></script>
 </head>
 
 <body>
     <div class="ui container">
-        <h1 class="ui header">Weather App</h1>
+        <div class="app-header">
+            <h1 class="ui center aligned header">Weather App</h1>
+        </div>
+        <div class="ui grid">
+            <div class="four wide column">
+                <div class="ui vertical fluid pointing menu">
+                    <a class="item"><i class="cz flag"></i>Prague</a>
+                    <a class="item"><i class="es flag"></i>Barcelona</a>
+                    <a class="item"><i class="nl flag"></i>Amsterdam</a>
+                    <a class="item active"><i class="gb flag"></i>London</a>
+                    <a class="item"><i class="de flag"></i>Berlin</a>
+                </div>
+            </div>
+            <div class="twelve wide stretched column">
+                <div class="ui segments">
+                    <div class="ui clearing segment">
+                        <button class="ui compact right floated toggle button">°C</button>
+                        <button class="ui compact right floated toggle button">°F</button>
+                        <h2 class="ui center aligned header">London</h2>
+                    </div>
+                    <ul>
+                        <li>TEMP: 285.07</li>
+                        <li>Wind Speed: 3.6 km/h</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
