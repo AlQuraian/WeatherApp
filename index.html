@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="weatherApp">
 
 <head>
     <meta charset="UTF-8">
@@ -7,10 +7,12 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="semantic/dist/semantic.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <div class="ui container">
+    <div class="ui container" ng-controller="MainController">
         <div id="app-header">
             <h1 class="ui center aligned header">Weather App</h1>
         </div>
@@ -30,14 +32,14 @@
                         <button class="ui compact right floated toggle button">°C</button>
                         <button class="ui compact right floated toggle button">°F</button>
                     </div>
-                    <h1 class="ui center aligned header">London</h1>
+                    <h1 class="ui center aligned header">{{selectedCity.name}}</h1>
                     <div class="centerd">
                         <div class="ui large horizontal divided list">
                             <div class="item">
-                                Temperature: 285.07
+                                Temperature: {{selectedCity.main.temp}}
                             </div>
                             <div class="item">
-                                Wind Speed: 3.6 km/h
+                                Wind Speed: {{selectedCity.wind.speed}} km/h
                             </div>
                         </div>
                     </div>
@@ -57,10 +59,10 @@
                                     </h4>
                                 </td>
                                 <td>
-                                    285.07
+                                    {{selectedCity.main.temp}}
                                 </td>
                                 <td>
-                                    3.6 km/h
+                                    {{selectedCity.wind.speed}} km/h
                                 </td>
                             </tr>
                             <tr>
@@ -70,10 +72,10 @@
                                     </h4>
                                 </td>
                                 <td>
-                                    285.07
+                                    {{selectedCity.main.temp}}
                                 </td>
                                 <td>
-                                    3.6 km/h
+                                    {{selectedCity.wind.speed}} km/h
                                 </td>
                             </tr>
                             <tr>
@@ -83,10 +85,10 @@
                                     </h4>
                                 </td>
                                 <td>
-                                    285.07
+                                    {{selectedCity.main.temp}}
                                 </td>
                                 <td>
-                                    3.6 km/h
+                                    {{selectedCity.wind.speed}} km/h
                                 </td>
                             </tr>
                         </tbody>
