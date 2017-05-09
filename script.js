@@ -1,51 +1,33 @@
 // IIFE Immediately Invoked Function Expression to avoid global variables 
 (function () {
     var app = angular.module('weatherApp', []);
+    var appId = '3d8b309701a13f65b660fa2c64cdc517';
 
-    var MainController = function ($scope) {
-        $scope.selectedCity =
-            {
-                coord: {
-                    lon: -0.13,
-                    lat: 51.51
-                },
-                weather: [
-                    {
-                        id: 804,
-                        main: "Clouds",
-                        description: "overcast clouds",
-                        icon: "04n"
-                    }
-                ],
-                base: "stations",
-                main: {
-                    temp: 281.6,
-                    pressure: 1017,
-                    humidity: 71,
-                    temp_min: 279.15,
-                    temp_max: 283.15
-                },
-                visibility: 10000,
-                wind: {
-                    speed: 5.7,
-                    deg: 90
-                },
-                clouds: {
-                    all: 90
-                },
-                dt: 1494361200,
-                sys: {
-                    type: 1,
-                    id: 5091,
-                    message: 0.0603,
-                    country: "GB",
-                    sunrise: 1494303395,
-                    sunset: 1494358697
-                },
-                id: 2643743,
-                name: "London",
-                cod: 200
-            };
+    var MainController = function ($scope, $http) {
+        // c for Celsius, f for Fahrenheit
+        $scope.temperatureUnit = 'c';
+        $scope.cityName = 'Amsterdam';
+
+        $scope.selectTemperatureUnit = function (unit) {
+            $scope.temperatureUnit = unit;
+            updateWeather();
+        }
+
+        var onCityChangeComplete = function (response) {
+            $scope.selectedCity = response.data;
+        }
+
+        $scope.selectCity = function (cityName) {
+            $scope.cityName = cityName;
+            updateWeather();
+        }
+
+        var updateWeather = function () {
+            $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + $scope.cityName + '&units=' + ($scope.temperatureUnit === 'c' ? 'metric' : 'imperial') + '&appid=' + appId)
+                .then(onCityChangeComplete);
+        }
+
+        updateWeather();
     };
 
     app.controller('MainController', MainController);

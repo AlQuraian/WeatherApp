@@ -19,24 +19,25 @@
         <div class="ui grid">
             <div class="four wide column">
                 <div class="ui vertical fluid pointing menu">
-                    <a class="item"><i class="cz flag"></i>Prague</a>
-                    <a class="item"><i class="es flag"></i>Barcelona</a>
-                    <a class="item"><i class="nl flag"></i>Amsterdam</a>
-                    <a class="item active"><i class="gb flag"></i>London</a>
-                    <a class="item"><i class="de flag"></i>Berlin</a>
+                    <a class="item" ng-class="{active : selectedCity.name === 'Prague'}" ng-click="selectCity('Prague')"><i class="cz flag"></i>Prague</a>
+                    <a class="item" ng-class="{active : selectedCity.name === 'Barcelona'}" ng-click="selectCity('Barcelona')"><i class="es flag"></i>Barcelona</a>
+                    <a class="item" ng-class="{active : selectedCity.name === 'Amsterdam'}" ng-click="selectCity('Amsterdam')"><i class="nl flag"></i>Amsterdam</a>
+                    <a class="item" ng-class="{active : selectedCity.name === 'London'}" ng-click="selectCity('London')"><i class="gb flag"></i>London</a>
+                    <a class="item" ng-class="{active : selectedCity.name === 'Berlin'}" ng-click="selectCity('Berlin')"><i class="de flag"></i>Berlin</a>
                 </div>
             </div>
             <div id="main-content" class="twelve wide stretched column">
                 <div class="ui segments">
                     <div class="ui segment">
-                        <button class="ui compact right floated toggle button">°C</button>
-                        <button class="ui compact right floated toggle button">°F</button>
+                        <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'c'}" ng-click="selectTemperatureUnit('c')">°C</button>
+                        <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'f'}" ng-click="selectTemperatureUnit('f')">°F</button>
                     </div>
                     <h2 class="ui center aligned header">
                         <img class="ui image" ng-src="http://openweathermap.org/img/w/{{selectedCity.weather[0].icon}}.png" alt="{{selectedCity.name}} weather is {{selectedCity.weather[0].description}}"
                             title="{{selectedCity.weather[0].description}}" />
-                        <div class="content ">
+                        <div class="content">
                             {{selectedCity.name}}
+                            <div class="sub header">{{selectedCity.weather[0].description}}</div>
                         </div>
                     </h2>
                     <div class="centerd">
