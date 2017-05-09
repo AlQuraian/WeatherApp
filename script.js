@@ -7,6 +7,7 @@
         // c for Celsius, f for Fahrenheit
         $scope.temperatureUnit = 'c';
         $scope.cityName = 'Amsterdam';
+        $scope.loading = false;
 
         $scope.selectTemperatureUnit = function (unit) {
             $scope.temperatureUnit = unit;
@@ -15,6 +16,7 @@
 
         var onCityChangeComplete = function (response) {
             $scope.selectedCity = response.data;
+            $scope.loading = false;
         }
 
         $scope.selectCity = function (cityName) {
@@ -22,9 +24,15 @@
             updateWeather();
         }
 
+        var onError = function () {
+            $scope.error = 'Could not fetch the weather';
+            $scope.loading = false;
+        }
+
         var updateWeather = function () {
+            $scope.loading = true;
             $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + $scope.cityName + '&units=' + ($scope.temperatureUnit === 'c' ? 'metric' : 'imperial') + '&appid=' + appId)
-                .then(onCityChangeComplete);
+                .then(onCityChangeComplete, onError);
         }
 
         updateWeather();

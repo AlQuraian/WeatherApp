@@ -27,79 +27,84 @@
                 </div>
             </div>
             <div id="main-content" class="twelve wide stretched column">
-                <div class="ui segments">
-                    <div class="ui segment">
-                        <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'c'}" ng-click="selectTemperatureUnit('c')">°C</button>
-                        <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'f'}" ng-click="selectTemperatureUnit('f')">°F</button>
-                    </div>
-                    <h2 class="ui center aligned header">
-                        <img class="ui image" ng-src="http://openweathermap.org/img/w/{{selectedCity.weather[0].icon}}.png" alt="{{selectedCity.name}} weather is {{selectedCity.weather[0].description}}"
-                            title="{{selectedCity.weather[0].description}}" />
-                        <div class="content">
-                            {{selectedCity.name}}
-                            <div class="sub header">{{selectedCity.weather[0].description}}</div>
+                <div class="ui active inverted dimmer" ng-show="loading">
+                    <div class="ui text loader">Loading</div>
+                </div>
+                <div ng-hide="loading">
+                    <div class="ui segments">
+                        <div class="ui segment">
+                            <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'c'}" ng-click="selectTemperatureUnit('c')">°C</button>
+                            <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'f'}" ng-click="selectTemperatureUnit('f')">°F</button>
                         </div>
-                    </h2>
-                    <div class="centerd">
-                        <div class="ui large horizontal divided list">
-                            <div class="item">
-                                Temperature: {{selectedCity.main.temp}}
+                        <h2 class="ui center aligned header">
+                            <img class="ui image" ng-src="http://openweathermap.org/img/w/{{selectedCity.weather[0].icon}}.png" alt="{{selectedCity.name}} weather is {{selectedCity.weather[0].description}}"
+                                title="{{selectedCity.weather[0].description}}" />
+                            <div class="content">
+                                {{selectedCity.name}}
+                                <div class="sub header">{{selectedCity.weather[0].description}}</div>
                             </div>
-                            <div class="item">
-                                Wind Speed: {{selectedCity.wind.speed}} km/h
+                        </h2>
+                        <div class="centerd">
+                            <div class="ui large horizontal divided list">
+                                <div class="item">
+                                    <i class="thermometer half icon"></i> {{selectedCity.main.temp}}
+                                </div>
+                                <div class="item">
+                                    Wind Speed: {{selectedCity.wind.speed}} km/h
+                                </div>
                             </div>
                         </div>
+                        <table class="ui very basic collapsing celled table" id="forecast-data">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Temperature</th>
+                                    <th>Wind Speed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4 class="ui header">
+                                            12:00 AM
+                                        </h4>
+                                    </td>
+                                    <td>
+                                        {{selectedCity.main.temp}}
+                                    </td>
+                                    <td>
+                                        {{selectedCity.wind.speed}} km/h
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4 class="ui header">
+                                            03:00 AM
+                                        </h4>
+                                    </td>
+                                    <td>
+                                        {{selectedCity.main.temp}}
+                                    </td>
+                                    <td>
+                                        {{selectedCity.wind.speed}} km/h
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4 class="ui header">
+                                            06:00 AM
+                                        </h4>
+                                    </td>
+                                    <td>
+                                        {{selectedCity.main.temp}}
+                                    </td>
+                                    <td>
+                                        {{selectedCity.wind.speed}} km/h
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <table class="ui very basic collapsing celled table" id="forecast-data">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Temperature</th>
-                                <th>Wind Speed</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h4 class="ui header">
-                                        12:00 AM
-                                    </h4>
-                                </td>
-                                <td>
-                                    {{selectedCity.main.temp}}
-                                </td>
-                                <td>
-                                    {{selectedCity.wind.speed}} km/h
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 class="ui header">
-                                        03:00 AM
-                                    </h4>
-                                </td>
-                                <td>
-                                    {{selectedCity.main.temp}}
-                                </td>
-                                <td>
-                                    {{selectedCity.wind.speed}} km/h
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 class="ui header">
-                                        06:00 AM
-                                    </h4>
-                                </td>
-                                <td>
-                                    {{selectedCity.main.temp}}
-                                </td>
-                                <td>
-                                    {{selectedCity.wind.speed}} km/h
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
