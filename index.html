@@ -10,7 +10,7 @@
 
 <body>
     <div class="ui container">
-        <div class="app-header">
+        <div id="app-header">
             <h1 class="ui center aligned header">Weather App</h1>
         </div>
         <div class="ui grid">
@@ -23,17 +23,52 @@
                     <a class="item"><i class="de flag"></i>Berlin</a>
                 </div>
             </div>
-            <div class="twelve wide stretched column">
+            <div id="main-content" class="twelve wide stretched column">
                 <div class="ui segments">
-                    <div class="ui clearing segment">
+                    <div class="ui segment">
                         <button class="ui compact right floated toggle button">°C</button>
                         <button class="ui compact right floated toggle button">°F</button>
-                        <h2 class="ui center aligned header">London</h2>
                     </div>
-                    <ul>
-                        <li>TEMP: 285.07</li>
-                        <li>Wind Speed: 3.6 km/h</li>
-                    </ul>
+                    <h1 class="ui center aligned header">London</h1>
+                    <div class="centerd">
+                        <div class="ui large horizontal divided list">
+                            <div class="item">
+                                <div class="content">
+                                    Temperature: 285.07
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    Wind Speed: 3.6 km/h
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="ui center aligned header">Forecast</h1>
+                    <table class="ui very basic collapsing celled table centerd">
+                        <thead>
+                            <tr>
+                                <th>Tomorrow</th>
+                                <th>After Tomorrow</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4 class="ui header">
+                                        <div class="content">
+                                            Lena
+                                            <div class="sub header">Human Resources
+                                            </div>
+                                        </div>
+                                    </h4>
+                                </td>
+                                <td>
+                                    22
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
