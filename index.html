@@ -32,7 +32,13 @@
                         <button class="ui compact right floated toggle button">°C</button>
                         <button class="ui compact right floated toggle button">°F</button>
                     </div>
-                    <h1 class="ui center aligned header">{{selectedCity.name}}</h1>
+                    <h2 class="ui center aligned header">
+                        <img class="ui image" ng-src="http://openweathermap.org/img/w/{{selectedCity.weather[0].icon}}.png" alt="{{selectedCity.name}} weather is {{selectedCity.weather[0].description}}"
+                            title="{{selectedCity.weather[0].description}}" />
+                        <div class="content ">
+                            {{selectedCity.name}}
+                        </div>
+                    </h2>
                     <div class="centerd">
                         <div class="ui large horizontal divided list">
                             <div class="item">
