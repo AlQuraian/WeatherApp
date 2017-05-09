@@ -8,3 +8,4 @@ This a simple application that will display the weather for a list of major citi
 
  ## Dependencies
  - [AngularJs 1.5.11](https://angularjs.org/)
+ - [Semantic UI 2.2](https://semantic-ui.com/)
