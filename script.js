@@ -14,8 +14,13 @@
             updateWeather();
         }
 
-        var onCityChangeComplete = function (response) {
+        var onCurrentWeatherChangeComplete = function (response) {
             $scope.selectedCity = response.data;
+            $scope.loading = false;
+        }
+
+        var onFOrecastWeatherChangeComplete = function (response) {
+            $scope.selectedCityForecasts = response.data.list;
             $scope.loading = false;
         }
 
@@ -29,10 +34,17 @@
             $scope.loading = false;
         }
 
+        var buildUrl = function (currentWeather) {
+            return 'http://api.openweathermap.org/data/2.5/' + (currentWeather ? 'weather' : 'forecast') + '?q=' + $scope.cityName + '&units=' + ($scope.temperatureUnit === 'c' ? 'metric' : 'imperial') + '&appid=' + appId;
+        }
+
         var updateWeather = function () {
             $scope.loading = true;
-            $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + $scope.cityName + '&units=' + ($scope.temperatureUnit === 'c' ? 'metric' : 'imperial') + '&appid=' + appId)
-                .then(onCityChangeComplete, onError);
+            $http.get(buildUrl(true))
+                .then(onCurrentWeatherChangeComplete, onError);
+            $scope.loading = true;
+            $http.get(buildUrl(false))
+                .then(onFOrecastWeatherChangeComplete, onError);
         }
 
         updateWeather();

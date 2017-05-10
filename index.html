@@ -63,43 +63,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr ng-repeat="city in selectedCityForecasts | limitTo:8">
                                     <td>
                                         <h4 class="ui header">
-                                            12:00 AM
+                                            {{city.dt * 1000 | date:'shortTime'}}
                                         </h4>
                                     </td>
                                     <td>
-                                        {{selectedCity.main.temp}}
+                                        {{city.main.temp}}
                                     </td>
                                     <td>
-                                        {{selectedCity.wind.speed}} km/h
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4 class="ui header">
-                                            03:00 AM
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        {{selectedCity.main.temp}}
-                                    </td>
-                                    <td>
-                                        {{selectedCity.wind.speed}} km/h
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4 class="ui header">
-                                            06:00 AM
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        {{selectedCity.main.temp}}
-                                    </td>
-                                    <td>
-                                        {{selectedCity.wind.speed}} km/h
+                                        {{city.wind.speed}} km/h
                                     </td>
                                 </tr>
                             </tbody>
