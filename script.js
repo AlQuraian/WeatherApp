@@ -19,7 +19,7 @@
             $scope.loading = false;
         }
 
-        var onFOrecastWeatherChangeComplete = function (response) {
+        var onForecastWeatherChangeComplete = function (response) {
             $scope.selectedCityForecasts = response.data.list;
             $scope.loading = false;
         }
@@ -30,6 +30,7 @@
         }
 
         var onError = function () {
+            // TODO: show the error on page
             $scope.error = 'Could not fetch the weather';
             $scope.loading = false;
         }
@@ -44,7 +45,7 @@
                 .then(onCurrentWeatherChangeComplete, onError);
             $scope.loading = true;
             $http.get(buildUrl(false))
-                .then(onFOrecastWeatherChangeComplete, onError);
+                .then(onForecastWeatherChangeComplete, onError);
         }
 
         updateWeather();
