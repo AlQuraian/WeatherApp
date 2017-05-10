@@ -30,12 +30,12 @@
                 <div class="ui active inverted dimmer" ng-show="loading">
                     <div class="ui text loader">Loading</div>
                 </div>
-                <div ng-hide="loading">
-                    <div class="ui segments">
-                        <div class="ui segment">
-                            <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'c'}" ng-click="selectTemperatureUnit('c')">°C</button>
-                            <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'f'}" ng-click="selectTemperatureUnit('f')">°F</button>
-                        </div>
+                <div class="ui segments">
+                    <div class="ui segment">
+                        <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'c'}" ng-click="selectTemperatureUnit('c')">°C</button>
+                        <button class="ui compact right floated toggle button" ng-class="{active : temperatureUnit === 'f'}" ng-click="selectTemperatureUnit('f')">°F</button>
+                    </div>
+                    <div ng-hide="loading">
                         <h2 class="ui center aligned header">
                             <img class="ui image" ng-src="http://openweathermap.org/img/w/{{selectedCity.weather[0].icon}}.png" alt="{{selectedCity.name}} weather is {{selectedCity.weather[0].description}}"
                                 title="{{selectedCity.weather[0].description}}" />
