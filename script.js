@@ -36,7 +36,7 @@
         }
 
         var buildUrl = function (currentWeather) {
-            return 'http://api.openweathermap.org/data/2.5/' + (currentWeather ? 'weather' : 'forecast') + '?q=' + $scope.cityName + '&units=' + ($scope.temperatureUnit === 'c' ? 'metric' : 'imperial') + '&appid=' + appId;
+            return 'https://api.openweathermap.org/data/2.5/' + (currentWeather ? 'weather' : 'forecast') + '?q=' + $scope.cityName + '&units=' + ($scope.temperatureUnit === 'c' ? 'metric' : 'imperial') + '&appid=' + appId;
         }
 
         var updateWeather = function () {
