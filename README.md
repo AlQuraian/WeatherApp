@@ -2,8 +2,7 @@
 This a simple application that will display the weather for a list of cities in beautiful Europe.
 
  ## Created By
- Mohammad Al Quraian
- [m4design@gmail.com](m4design@gmail.com)
+ Mohammad AlQuraian
 
  ## Dependencies
  - [AngularJs 1.5.11](https://angularjs.org/)
